@@ -1,0 +1,14 @@
+{
+  "repo": "binary-signal/vite-plugin-autocaddy",
+  "output": "CHANGELOG.md",
+  "clean": true,
+  "authors": false,
+  "types": {
+    "feat": { "title": "🚀 Features" },
+    "fix": { "title": "🐛 Fixes" },
+    "chore": false
+  },
+  "release": {
+    "commitMessage": "Release v{version}"
+  }
+}
