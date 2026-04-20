@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/binary-signal/vite-plugin-autocaddy/compare/v0.1.4...v0.1.5)
+
+### 🐛 Fixes
+
+- Remove tag creation from release script, let GitHub handle it ([f5e8268](https://github.com/binary-signal/vite-plugin-autocaddy/commit/f5e8268))
+
+### ❤️ Contributors
+
+- Evan ([@binary-signal](https://github.com/binary-signal))
+
 ## v0.1.4
 
 [compare changes](https://github.com/binary-signal/vite-plugin-autocaddy/compare/v0.1.3...v0.1.4)
