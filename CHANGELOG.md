@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/binary-signal/vite-plugin-autocaddy/compare/v0.1.3...v0.1.4)
+
+### 🐛 Fixes
+
+- Align pnpm version in CI with package.json packageManager field ([41f04b8](https://github.com/binary-signal/vite-plugin-autocaddy/commit/41f04b8))
+
+### ❤️ Contributors
+
+- Evan ([@binary-signal](https://github.com/binary-signal))
+
 ## v0.1.3
 
 [compare changes](https://github.com/binary-signal/vite-plugin-autocaddy/compare/v0.1.1...v0.1.3)
