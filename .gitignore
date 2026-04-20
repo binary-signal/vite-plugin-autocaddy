@@ -38,4 +38,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .idea
-/NOTES.MD
+*.md
+!README.md
+!CHANGELOG.md
