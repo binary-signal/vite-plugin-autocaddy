@@ -11,9 +11,14 @@ fi
 pnpm build
 pnpm lint
 
-# Bump version, update CHANGELOG.md, commit, tag, and push
-pnpm dlx changelogen --release --push
+# Bump version, update CHANGELOG.md (no tag — GitHub creates it on release)
+pnpm dlx changelogen --bump
 
-# Create GitHub release with auto-generated notes
+# Commit and push the version bump
 VERSION="v$(node -p "require('./package.json').version")"
+git add -A
+git commit -m "chore: release $VERSION"
+git push
+
+# Create GitHub release (this creates the tag)
 gh release create "$VERSION" --generate-notes
