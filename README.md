@@ -12,7 +12,7 @@ When you start `vite dev`, the plugin:
 ## Prerequisites
 
 - Caddy running with the [admin API](https://caddyserver.com/docs/api) enabled (default: `localhost:2019`)
-- If Caddy runs in Docker, ensure `host.docker.internal` resolves to the host machine
+- If Caddy runs in Docker, use `mode: "docker"` and ensure `host.docker.internal` resolves to the host machine
 
 ## Installation
 
@@ -38,23 +38,25 @@ Start your dev server and visit `https://your-app.dev.local` (where `your-app` i
 
 ```ts
 autoCaddy({
+  mode: "docker", // 'local' (default) or 'docker'
   appName: "my-app", // Override directory-derived name
   domainSuffix: "dev.local", // Domain suffix (default: 'dev.local')
   caddyApiUrl: "http://localhost:2019", // Caddy admin API URL
   serverName: "proxy", // Caddy server name (default: 'proxy')
-  upstreamHost: "host.docker.internal", // How Caddy reaches your dev server
+  upstreamHost: "host.docker.internal", // Explicit override (takes precedence over mode)
   cleanup: true, // Delete route on server close
 });
 ```
 
-| Option         | Type      | Default                   | Description                                  |
-| -------------- | --------- | ------------------------- | -------------------------------------------- |
-| `appName`      | `string`  | Directory name            | App name used for domain and route ID        |
-| `domainSuffix` | `string`  | `'dev.local'`             | Domain suffix (e.g., `app.dev.local`)        |
-| `caddyApiUrl`  | `string`  | `'http://localhost:2019'` | Caddy admin API base URL                     |
-| `serverName`   | `string`  | `'proxy'`                 | Caddy server name in config                  |
-| `upstreamHost` | `string`  | `'host.docker.internal'`  | Host Caddy uses to reach the dev server      |
-| `cleanup`      | `boolean` | `true`                    | Delete the Caddy route when dev server stops |
+| Option         | Type                   | Default                   | Description                                          |
+| -------------- | ---------------------- | ------------------------- | ---------------------------------------------------- |
+| `mode`         | `'docker' \| 'local'`  | `'local'`                 | Where Caddy runs — sets the default upstream host    |
+| `appName`      | `string`               | Directory name            | App name used for domain and route ID                |
+| `domainSuffix` | `string`               | `'dev.local'`             | Domain suffix (e.g., `app.dev.local`)                |
+| `caddyApiUrl`  | `string`               | `'http://localhost:2019'` | Caddy admin API base URL                             |
+| `serverName`   | `string`               | `'proxy'`                 | Caddy server name in config                          |
+| `upstreamHost` | `string`               | Per mode                  | Explicit upstream host (overrides `mode`)            |
+| `cleanup`      | `boolean`              | `true`                    | Delete the Caddy route when dev server stops         |
 
 ## How It Works
 

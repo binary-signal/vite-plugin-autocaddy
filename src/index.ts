@@ -11,7 +11,9 @@ export interface AutoCaddyOptions {
   caddyApiUrl?: string;
   /** Caddy server name in config. Default: 'proxy' */
   serverName?: string;
-  /** Upstream host Caddy uses to reach the dev server. Default: 'host.docker.internal' */
+  /** Where Caddy is running. 'local' uses localhost, 'docker' uses host.docker.internal. Default: 'local' */
+  mode?: "docker" | "local";
+  /** Upstream host Caddy uses to reach the dev server. Default depends on mode. */
   upstreamHost?: string;
   /** DELETE the Caddy route when the dev server closes. Default: true */
   cleanup?: boolean;
@@ -36,7 +38,9 @@ function resolveOptions(options: AutoCaddyOptions): ResolvedConfig {
     routeId: `vite-${appName}`,
     caddyApiUrl: options.caddyApiUrl ?? "http://localhost:2019",
     serverName: options.serverName ?? "proxy",
-    upstreamHost: options.upstreamHost ?? "host.docker.internal",
+    upstreamHost:
+      options.upstreamHost ??
+      (options.mode === "docker" ? "host.docker.internal" : "localhost"),
     cleanup: options.cleanup ?? true,
   };
 }
