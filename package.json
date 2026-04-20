@@ -13,7 +13,17 @@
   "bugs": {
     "url": "https://github.com/binary-signal/vite-plugin-autocaddy/issue"
   },
-  "keywords": ["vite", "plugin", "vite-plugin", "caddy", "autocaddy", "reverse", "proxy", "reverse-proxy", "dev"],
+  "keywords": [
+    "vite",
+    "plugin",
+    "vite-plugin",
+    "caddy",
+    "autocaddy",
+    "reverse",
+    "proxy",
+    "reverse-proxy",
+    "dev"
+  ],
   "files": [
     "dist"
   ],
